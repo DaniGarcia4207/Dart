@@ -7,7 +7,7 @@ siguientes operaciones:
 • Potencia 
 • Raíz 
 Todas las operaciones deben ser implementadas como funciones. La selección de la 
-operación se realizará mediante un pequeño menú desplegado por pantalla.*/
+operación se realizará mediante un pequeño menú desplegado por pantalla.hola*/
 import 'dart:io';
 import 'dart:math';
 void main(){
