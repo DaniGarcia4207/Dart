@@ -10,7 +10,7 @@ void main() {
     Map<String, String> diccionario = {};
     print("Cuantas palabras desea ingresar al diccionario");
     int i = int.parse(stdin.readLineSync().toString());
-    int cont =1;
+    int cont =0;
     while(cont < i){
       print('Introduce las palabras en español e inglés separadas por dos puntos (:) y cada par separado por comas: ');
       String entrada = stdin.readLineSync().toString();
@@ -27,9 +27,10 @@ void main() {
     String frase = stdin.readLineSync().toString();
     List<String> palabras = frase.split(' ');
     diccionario.forEach((key, value){
-      for (String palabra in palabras) {
-        if(palabra == value);
-        print("La traduccion de ${key} es ${value}}");
+      for(String palabra in palabras) {
+        if(palabra == key){
+        print("La traduccion de ${key} es ${value}");
+        }
       }
     });
 }
