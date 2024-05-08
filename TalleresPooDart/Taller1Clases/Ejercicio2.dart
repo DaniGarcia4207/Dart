@@ -20,8 +20,10 @@ class Cafetera{
    void vaciarCafetera(){
     capacidadMaxima = 1000;
     cantidadActual = 0;
+    print("La cafetera esta vacia");
    }
    void agregarCafe(){
+      capacidadMaxima=1000;
       print("Cuanto cafe desea añadir a la cafetera capacidad maxima${capacidadMaxima}");
       int agregarCafe = int.parse(stdin.readLineSync().toString());
       if(agregarCafe<capacidadMaxima && cantidadActual+agregarCafe<capacidadMaxima){
@@ -34,17 +36,40 @@ class Cafetera{
    void servirCafe(){
     print("Indique la capacidad de su taza");
     int capacidad = int.parse(stdin.readLineSync().toString());
-    if(cantidadActual>capacidad){
+    if(cantidadActual>=capacidad){
       cantidadActual=cantidadActual-capacidad;
-      print("Taza completamente llena");
-    }else if(cantidadActual == 0){
+      print("Taza completamente llena quedaron ${cantidadActual} mililitros en la cafetera");
+    }else if(cantidadActual <= 0){
       print("No hay cafe en la cafetera por favor ingrese mas cafe");
-      agregarCafe();
-
     }else{
-      int cantidadRestante = capacidad-cantidadActual;
-      cantidadActual = cantidadActual -cantidadRestante;
-      print("solo hay ${cantidadActual} ,mililitros en la cafetera");
+      print("solo se lleno su taza con ${cantidadActual} ,mililitros por que no hay suficiente cafe");
+      cantidadActual = cantidadActual - capacidad;
     }
    }
+}
+void main(){
+  final cafetera1 = new Cafetera(0, 0);
+  print("Escoja cualquiera de las siguientes opciones");
+  int respuesta = 0;
+  do{
+    print("-------------------");
+    print("1.Llenar cafetera");
+    print("2.Vaciar cafetera");
+    print("3.Servir cafe");
+    print("-------------------");
+    respuesta = int.parse(stdin.readLineSync().toString());
+    switch(respuesta){
+      case 1:
+      cafetera1.agregarCafe();
+      break;
+
+      case 2:
+      cafetera1.vaciarCafetera();
+      break;
+
+      case 3:
+      cafetera1.servirCafe();
+      break;
+    } 
+  }while(respuesta>0 && respuesta<4);
 }
