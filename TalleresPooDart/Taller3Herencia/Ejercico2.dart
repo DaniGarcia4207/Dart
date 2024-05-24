@@ -4,17 +4,17 @@ clases que debe incluir Empleado, y Programador.*/
 class Empleado {    
   String nombre = "";
   int edad=0;
-  String cargo="";
 
-  Empleado(this.nombre,int edad, String cargo);
+  Empleado(this.nombre,int edad);
 
   @override
   String toString() {
-    return 'Informacion del empleado: \nNombre: $nombre, Edad: $edad, Cargo: $cargo';
+    return 'Informacion del empleado: \nNombre: $nombre, Edad: $edad';
   }
 } 
 class Programador extends Empleado{
   String nivel ="";
+  String cargo="";
   String direccion ="";
   String telefono ="";
   String lenguajeDominante ="";
@@ -27,7 +27,7 @@ class Programador extends Empleado{
   }
 }
 void main(){
-  final Empleado1 = new Empleado("Maria", 28, "Asistente administrativo");
+  final Empleado1 = new Empleado("Maria", 28);
   final Programador1 = new Programador("Daniela", 18, "Senior", "Carrera18-calle25,casa N°8", "3144235678", "Java");
   print(Empleado1);
   print(Programador1);
